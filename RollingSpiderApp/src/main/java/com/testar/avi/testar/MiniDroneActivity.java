@@ -138,7 +138,11 @@ public class MiniDroneActivity extends AppCompatActivity {
             }
         });
 
-        //execute a pre-planning path
+        /** Execute a pre-planning path
+         *  flying foreword for 2 seconds hover for 5 secs
+         *  flying backwards for 2 secs
+         *
+         */
         findViewById(R.id.AutoPilotButton).setOnTouchListener(new View.OnTouchListener() {
             @Override
         public boolean onTouch(View v, MotionEvent event) {
@@ -146,12 +150,27 @@ public class MiniDroneActivity extends AppCompatActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         v.setPressed(true);
-                        mMiniDrone.setGaz((byte) 50);
+                        try {
+
+                            mMiniDrone.setPitch((byte) 50);
+                            mMiniDrone.setFlag((byte) 1);
+                            Thread.sleep(2000);
+                            mMiniDrone.setPitch((byte) 0);
+                            mMiniDrone.setFlag((byte) 0);
+                            Thread.sleep(5000);
+                            mMiniDrone.setPitch((byte) -50);
+                            mMiniDrone.setFlag((byte) 1);
+                            Thread.sleep(2000);
+                            mMiniDrone.setPitch((byte)0);
+                            mMiniDrone.setFlag((byte) 0);
+
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                         break;
 
                     case MotionEvent.ACTION_UP:
                         v.setPressed(false);
-                        mMiniDrone.setGaz((byte) 0);
                         break;
 
                     default:
