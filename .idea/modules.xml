@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/RollingSpiderApp/RollingSpiderApp.iml" filepath="$PROJECT_DIR$/RollingSpiderApp/RollingSpiderApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TestAR.iml" filepath="$PROJECT_DIR$/TestAR.iml" />
+    </modules>
+  </component>
+</project>
