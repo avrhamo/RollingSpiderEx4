@@ -152,17 +152,36 @@ public class MiniDroneActivity extends AppCompatActivity {
                         v.setPressed(true);
                         try {
 
+                            //Taking off
+                            mMiniDrone.takeOff();
+                            Thread.sleep(3000);//waits until take off is complete
                             mMiniDrone.setPitch((byte) 50);
                             mMiniDrone.setFlag((byte) 1);
-                            Thread.sleep(2000);
+                            Thread.sleep(1000);//Going foreword for 1 sec
                             mMiniDrone.setPitch((byte) 0);
                             mMiniDrone.setFlag((byte) 0);
-                            Thread.sleep(5000);
+                            Thread.sleep(1000);//hover 1 sec
+                            mMiniDrone.land();//landing
+
+                            Thread.sleep(4000);
+
+                            mMiniDrone.takeOff();
+                            Thread.sleep(3000);//waits until take off is complete
                             mMiniDrone.setPitch((byte) -50);
                             mMiniDrone.setFlag((byte) 1);
-                            Thread.sleep(2000);
-                            mMiniDrone.setPitch((byte)0);
+                            Thread.sleep(1000);//Going foreword for 1 sec
+                            mMiniDrone.setPitch((byte) 0);
                             mMiniDrone.setFlag((byte) 0);
+                            Thread.sleep(1000);//hover 1 sec
+                            mMiniDrone.land();//landing
+
+
+
+
+
+
+
+
 
                         } catch (InterruptedException e) {
                             e.printStackTrace();
